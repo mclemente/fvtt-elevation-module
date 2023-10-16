@@ -63,3 +63,10 @@ Hooks.on("hoverToken", (token, hovered) => {
 	const hover = game.settings.get("elevation-module", "hover");
 	token.tooltip.alpha = hovered ? 1 : hover;
 });
+
+Hooks.on("highlightObjects", (highlight) => {
+	const hover = game.settings.get("elevation-module", "hover");
+	canvas.tokens?.placeables.forEach((token) => {
+		token.tooltip.alpha = highlight ? 1 : hover;
+	});
+});
