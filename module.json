@@ -1,0 +1,24 @@
+{
+	"id": "elevation-module",
+	"title": "Elevation Module",
+	"description": "",
+	"compatibility": {
+		"minimum": 11,
+		"verified": 11
+	},
+	"version": "1.0.0",
+	"authors": [
+		{
+			"name": "Matheus Clemente"
+		}
+	],
+	"languages": [
+		{
+			"lang": "en",
+			"name": "English",
+			"path": "lang/en.json",
+			"flags": {}
+		}
+	],
+	"esmodules": ["./module.js"]
+}

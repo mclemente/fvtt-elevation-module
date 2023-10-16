@@ -1,0 +1,11 @@
+{
+	"ELEVATION_MODULE": {
+		"fontSize": {
+			"hint": "The size the fonts are rendered. Bear in mind it gets bigger on 200px grid size canvas and smaller on 50px grid size canvas."
+		},
+		"hover": {
+			"name": "Hover Transparency",
+			"hint": "The transparency of the tooltip when not hovering over a token."
+		}
+	}
+}
