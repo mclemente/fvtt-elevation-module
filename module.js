@@ -38,24 +38,32 @@ Hooks.once("i18nInit", () => {
 });
 
 Hooks.on("canvasReady", () => {
-	let fontSize = game.settings.get("elevation-module", "fontSize");
+	const fontSize = game.settings.get("elevation-module", "fontSize");
 	const hover = game.settings.get("elevation-module", "hover");
 
 	canvas.tokens?.placeables.forEach((token) => {
-		if (canvas.dimensions.size >= 200) fontSize *= 7 / 6;
-		else if (canvas.dimensions.size < 50) fontSize *= 5 / 6;
-		token.tooltip.style.fontSize = fontSize;
+		if (canvas.dimensions.size >= 200) {
+			token.tooltip.style.fontSize = fontSize * (7 / 6);
+		} else if (canvas.dimensions.size < 50) {
+			token.tooltip.style.fontSize = fontSize * (5 / 6);
+		} else {
+			token.tooltip.style.fontSize = fontSize;
+		}
 		token.tooltip.alpha = hover;
 	});
 });
 
 Hooks.on("drawToken", (token) => {
-	let fontSize = game.settings.get("elevation-module", "fontSize");
+	const fontSize = game.settings.get("elevation-module", "fontSize");
 	const hover = game.settings.get("elevation-module", "hover");
 
-	if (canvas.dimensions.size >= 200) fontSize *= 7 / 6;
-	else if (canvas.dimensions.size < 50) fontSize *= 5 / 6;
-	token.tooltip.style.fontSize = fontSize;
+	if (canvas.dimensions.size >= 200) {
+		token.tooltip.style.fontSize = fontSize * (7 / 6);
+	} else if (canvas.dimensions.size < 50) {
+		token.tooltip.style.fontSize = fontSize * (5 / 6);
+	} else {
+		token.tooltip.style.fontSize = fontSize;
+	}
 	token.tooltip.alpha = hover;
 });
 
