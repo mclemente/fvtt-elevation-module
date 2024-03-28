@@ -6,6 +6,10 @@
 		"hover": {
 			"name": "Hover Transparency",
 			"hint": "The transparency of the tooltip when not hovering over a token."
+		},
+		"scaleToGridSize": {
+			"name": "Scale to Grid Size",
+			"hint": "Scales tooltips to the grid size, assuming 100px as the baseline."
 		}
 	}
 }
