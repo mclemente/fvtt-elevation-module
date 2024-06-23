@@ -4,8 +4,14 @@ Hooks.once("i18nInit", () => {
 		hint: "ELEVATION_MODULE.fontSize.hint",
 		scope: "world",
 		config: true,
-		default: 24,
-		type: Number,
+		type: new foundry.data.fields.NumberField({
+			required: true,
+			initial: 24,
+			nullable: false,
+			min: 20,
+			max: 72,
+			step: 1
+		}),
 		onChange: resizeTooltips,
 	});
 
@@ -14,15 +20,14 @@ Hooks.once("i18nInit", () => {
 		hint: "ELEVATION_MODULE.hover.hint",
 		scope: "world",
 		config: true,
-		default: 0.25,
-		type: Number,
-		choices: {
-			1: "1",
-			0.75: "0.75",
-			0.5: "0.50",
-			0.25: "0.25",
-			0: "0",
-		},
+		type: new foundry.data.fields.NumberField({
+			required: true,
+			initial: 0.25,
+			nullable: false,
+			min: 0,
+			max: 1,
+			step: 0.25
+		}),
 		onChange: (v) => {
 			canvas.tokens?.placeables.forEach((token) => {
 				token.tooltip.alpha = v;

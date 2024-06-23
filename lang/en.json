@@ -1,7 +1,7 @@
 {
 	"ELEVATION_MODULE": {
 		"fontSize": {
-			"hint": "The size the fonts are rendered. Bear in mind it gets bigger on 200px grid size canvas and smaller on 50px grid size canvas."
+			"hint": "The size the fonts are rendered. It scales with the grid size to simulate Foundry's own font size scaling, getting bigger on a 200px grid size and smaller on a 50px grid size canvas."
 		},
 		"hover": {
 			"name": "Hover Transparency",

@@ -3,8 +3,8 @@
 	"title": "Elevation Module",
 	"description": "",
 	"compatibility": {
-		"minimum": 11,
-		"verified": 11
+		"minimum": 12,
+		"verified": 12
 	},
 	"version": "1.0.0",
 	"authors": [
