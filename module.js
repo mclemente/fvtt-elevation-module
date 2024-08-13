@@ -44,6 +44,22 @@ Hooks.once("i18nInit", () => {
 		type: Boolean,
 		onChange: resizeTooltips,
 	});
+
+	game.settings.register("elevation-module", "positionX", {
+		name: "ELEVATION_MODULE.positionX.name",
+		hint: "ELEVATION_MODULE.positionX.hint",
+		scope: "world",
+		config: true,
+		default: "default",
+		choices: {
+			left: "ELEVATION_MODULE.positionX.options.left",
+			default: "ELEVATION_MODULE.positionX.options.default",
+			right: "ELEVATION_MODULE.positionX.options.right",
+		},
+		onChange: (value) => {
+			canvas.tokens?.placeables.forEach((token) => repositionTooltip(token, value));
+		},
+	});
 });
 
 function resizeTooltips() {
@@ -65,6 +81,16 @@ function resizeToken(token, size, hover) {
 	token.tooltip.alpha = hover;
 }
 
+export function repositionTooltip(token, tooltipPosition) {
+	tooltipPosition ??= game.settings.get("elevation-module", "positionX");
+	const docWidth = token.document.width;
+	const { width } = token.getSize();
+	const offset = 0.35 / Math.max(1, docWidth);
+	if (tooltipPosition === "left") token.tooltip.x = width * (-offset);
+	else if (tooltipPosition === "default") token.tooltip.x = width / 2;
+	else if (tooltipPosition === "right") token.tooltip.x = width * (1 + offset);
+}
+
 Hooks.on("canvasReady", resizeTooltips);
 
 Hooks.on("drawToken", (token) => {
@@ -78,6 +104,10 @@ Hooks.on("drawToken", (token) => {
 Hooks.on("hoverToken", (token, hovered) => {
 	const hover = game.settings.get("elevation-module", "hover");
 	token.tooltip.alpha = hovered ? 1 : hover;
+});
+
+Hooks.on("refreshToken", (token, flags) => {
+	if (flags.refreshSize) repositionTooltip(token);
 });
 
 Hooks.on("highlightObjects", (highlight) => {
