@@ -8,7 +8,7 @@ Hooks.once("i18nInit", () => {
 			required: true,
 			initial: 24,
 			nullable: false,
-			min: 20,
+			min: 0,
 			max: 72,
 			step: 1
 		}),
