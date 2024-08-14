@@ -11,6 +11,10 @@
 			"name": "Scale to Grid Size",
 			"hint": "Scales tooltips to the grid size, assuming 100px as the baseline."
 		},
+		"scaleToZoom": {
+			"name": "Scale to Zoom Scale",
+			"hint": "Scales tooltips to the zoom scale."
+		},
 		"positionX": {
 			"name": "Horizontal Position (%)",
 			"hint": "Moves the tooltip horizontally. The middle of the token (50%) is the default position.",
